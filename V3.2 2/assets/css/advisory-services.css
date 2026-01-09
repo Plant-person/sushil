@@ -1,0 +1,96 @@
+.advisory-card {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.advisory-header {
+  margin-bottom: 1rem;
+}
+
+.advisory-name {
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+
+.advisory-lede {
+color: var(--bs-secondary-color);
+}
+
+.advisory-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.advisory-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.advisory-list {
+  margin-bottom: 1rem;
+}
+
+.advisory-contact {
+  color: var(--bs-secondary-color);
+  margin-bottom: 1rem;
+}
+
+.advisory-cta {
+  margin-top: .75rem;
+}
+
+.advisory-ribbon {
+  margin-top: 1rem;
+}
+
+/* Advisory card background + text */
+.advisory-card {
+  background-color: #751C30;
+  color: #ffffff;
+}
+
+/* Headings & labels */
+.advisory-name,
+.promise-tag,
+.ribbon,
+.ribbon-title {
+  color: #ffffff;
+}
+
+/* Secondary / lede text */
+.advisory-lede,
+.advisory-contact {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Links inside advisory card */
+.advisory-card a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.advisory-card a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Remove pink dot / bullet */
+.promise-tag .dot {
+  font-size: large;
+  display: none;
+}
+
+/* List bullets → clean white */
+.advisory-list {
+  padding-left: 1.2rem;
+}
+
+.advisory-list li {
+  color: #ffffff;
+}
+
+.advisory-list li::marker {
+  color: #ffffff;
+}
