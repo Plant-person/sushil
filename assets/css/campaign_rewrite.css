@@ -1,0 +1,480 @@
+/* Campaign styles (rewrite) */
+:root{
+  /* === Campaign palette === */
+  --navy:#193B6E;     /* background */
+  --red:#751C30;      /* red blocks */
+  --ink:#040F16;      /* ink black */
+  --pink:#E0AC9D;     /* powder blush (highlight/drop) */
+  --sky:#BCD4DE;      /* pale sky */
+  --slate:#5C6D70;    /* blue slate */
+  --white:#FFFFFF;
+
+  /* Outlines */
+  --outline-grey: rgba(188,212,222,.28);
+  --outline-blue: #5C6D70;
+
+  /* Shadows */
+  --drop: rgba(224,172,157,.22);
+  --deep: rgba(4,15,22,.55);
+
+  /* Text legibility helpers */
+  --text-on-dark: rgba(255,255,255,.94);
+  --text-on-dark-muted: rgba(255,255,255,.82);
+  --text-on-light: rgba(4,15,22,.92);
+  --text-on-light-muted: rgba(4,15,22,.72);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--text-on-dark);
+  background: var(--sky);
+  background-image:
+    radial-gradient(900px 520px at 18% -10%, rgba(224,172,157,.20), transparent 60%),
+    radial-gradient(760px 420px at 95% 0%, rgba(188,212,222,.18), transparent 55%),
+    linear-gradient(180deg, rgba(4,15,22,.28), rgba(4,15,22,.10));
+}
+
+a{color: var(--sky)}
+a:hover{color: var(--pink)}
+
+/* =========================================================
+   NAV
+========================================================= */
+.navbar{
+  background: rgba(4,15,22,.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(188,212,222,.16);
+}
+.navbar .nav-link,
+.navbar .navbar-brand{color: rgba(255,255,255,.94)}
+.navbar .nav-link{padding:.45rem .85rem; border-radius:999px}
+.navbar .nav-link:hover{color: var(--pink)}
+.navbar .nav-link.active{
+  color: var(--white)!important;
+  background: var(--red);
+  border-radius: 999px;
+  padding: .45rem .85rem;
+  font-weight: 900;
+  box-shadow: 0 12px 0 rgba(224,172,157,.25);
+}
+.navbar .nav-link.active:hover{
+  color: var(--white)!important;
+  background: #651527;
+}
+
+.brand-mark .name{
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase
+}
+.brand-mark .name span{
+  color: var(--pink);
+  text-shadow: 0 2px 0 rgba(0,0,0,.25), 0 10px 30px rgba(224,172,157,.18);
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+.badge-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.25rem;
+  padding:.45rem .85rem;
+  border-radius:10px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.badge-navy{
+  background: rgba(4,15,22,.20);
+  color: var(--text-on-dark);
+  border: 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(92,109,112,.85),
+    0 0 0 1px rgba(92,109,112,.50);
+}
+.badge-gold{
+  background: rgba(224,172,157,.18);
+  color: var(--ink);
+  border: 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(224,172,157,.55),
+    0 0 0 1px rgba(224,172,157,.35),
+    0 10px 26px rgba(224,172,157,.12);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+.btn-primary{
+  background: var(--red);
+  border-color: var(--slate);
+  color: var(--white);
+  font-weight: 900;
+  box-shadow: 0 5px 0 rgba(110, 84, 88);
+  transform: translateY(0);
+}
+.btn-primary:hover{
+  background: #651527;
+  border-color: #651527;
+  color: var(--white);
+  box-shadow: 0 16px 0 rgba(224,172,157,.30);
+  transform: translateY(-1px);
+}
+.btn-outline-light{
+  border-color: rgba(188,212,222,.55);
+  color: rgba(255,255,255,.92);
+}
+.btn-outline-light:hover{
+  background: rgba(188,212,222,.14);
+  border-color: rgba(188,212,222,.75);
+  color: white;
+}
+
+/* Make dark-outline buttons readable against dark background */
+.btn-outline-dark{
+  border-color: rgba(188,212,222,.55);
+  color: rgba(255,255,255,.92);
+}
+.btn-outline-dark:hover{
+  background: rgba(188,212,222,.14);
+  border-color: rgba(188,212,222,.75);
+  color: white;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero{
+  position:relative;
+  padding-top:6.5rem;
+  padding-bottom:4.5rem
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px 540px at 12% 0%, rgba(4,15,22,.55), rgba(4,15,22,.15) 55%, transparent 100%),
+    linear-gradient(180deg, rgba(117,28,48,.18), transparent 55%);
+  z-index:-1;
+}
+.hero *{color: var(--text-on-dark)}
+
+.hero-title{
+  font-weight:1000;
+  letter-spacing:.03em;
+  line-height:1.02
+}
+.hero-title .first{
+  display:block;
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+}
+.hero-title .last{
+  display:block;
+  font-size: clamp(2.6rem, 4.6vw, 4.2rem);
+  color: var(--white);
+  text-shadow:
+    0 10px 0 var(--red),
+    0 22px 50px rgba(4,15,22,.55);
+}
+
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:900;
+  font-size:.85rem;
+  color: rgba(255,255,255,.88);
+}
+
+.hero-card{
+  background: var(--red);
+  border: 0;
+  border-radius: 5px;
+  color: var(--text-on-dark);
+  box-shadow:
+    inset 0 0 0 1px rgba(146, 166, 176, 0.90),
+    0 0 0 1px rgba(146, 166, 176, 0.55),
+    0 10px 0 rgba(188, 212, 222, 0.22),
+    0 10px 60px rgba(40, 60, 70, 0.45);
+}
+.hero-headshot{
+  border-radius:22px;
+  overflow:hidden;
+  background: rgba(4,15,22,.22);
+  border: 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(146, 166, 176, 0.90),
+    0 0 0 1px rgba(146, 166, 176, 0.55),
+    0 10px 0 rgba(188, 212, 222, 0.22),
+    0 10px 60px rgba(40, 60, 70, 0.45);
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+.section{padding:4.25rem 0; scroll-margin-top: 90px}
+.section-title{
+  font-weight:950;
+  letter-spacing:.02em;
+  color: var(--white);
+}
+.section-lede{
+  color: #ffffff;
+  font-size:1.05rem;
+}
+
+/* =========================================================
+   RED CARDS
+========================================================= */
+.card-elev{
+  background: var(--red);
+  border: 0;
+  border-radius: 5px;
+  color: var(--text-on-dark);
+  box-shadow:
+  inset 0 0 0 1px rgba(188, 212, 222, 0.55),
+  0 0 0 1px rgba(188, 212, 222, 0.35),
+  0 5px 0 rgba(188, 212, 222, 0.25),
+  0 26px 60px rgba(--pink);
+}
+.card-elev .text-muted,
+.card-elev small,
+.card-elev p{color: rgba(255,255,255,.90)}
+.card-elev .text-secondary{color: rgba(255,255,255,.90)!important;}
+
+.ribbon{
+  background: linear-gradient(90deg, var(--red), rgba(4,15,22,.35));
+  color: var(--text-on-dark);
+  border-radius:5px;
+  padding:1.1rem 1.2rem;
+  border: 0;
+  box-shadow:
+    -3px 4px 0 0 rgba(255, 255, 255, 0.55),
+    0 26px 60px var(--deep);
+}
+.ribbon .ribbon-title{
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color: var(--white);
+}
+.ribbon .text-secondary{color: rgba(255,255,255,.90)!important;}
+
+/* Full-bleed background for the Platform section */
+section.platform{
+  position: relative;
+  background: none !important; /* ensure the boxed background isn't used */
+  overflow: visible;
+}
+
+section.platform::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  /* full-bleed trick */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background:
+    radial-gradient(900px 420px at 12% 0%, rgba(224,172,157,.12), transparent 60%),
+    linear-gradient(180deg, rgba(4,15,22,.10), transparent 70%);
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   PRIORITIES (ONE RED BOX + SMALL GREY OFFSET SHADOW)
+   - Whole box has grey offset shadow (like your .card example)
+   - Rows inside, no individual outlines
+========================================================= */
+.priorities-box{
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #751C30);
+  color: var(--text-on-dark);
+  /* small grey "offset" shadow */
+  box-shadow:
+    -3px 4px 0 0 rgba(188,212,222,.55),
+    0 26px 60px var(--deep);
+}
+
+/* Header row inside the red box */
+.priorities-box-header{
+  padding: 22px 24px;
+  font-size: clamp(24px, 2.1vw, 40px);
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  border-bottom: 2px solid rgba(255,255,255,.18);
+  background: transparent;
+}
+
+/* Make accordion look like rows inside one container */
+.priorities-box .accordion{
+  background: transparent;
+}
+.priorities-box .accordion-item{
+  border: 0;
+  border-top: 2px solid rgba(255,255,255,.16);
+  border-radius: 0 !important;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+}
+.priorities-box .accordion-item:first-child{
+  border-top: 0;
+}
+
+/* Buttons (row headers) */
+.priorities-box .accordion-button{
+  padding: 22px 24px;
+  font-size: clamp(18px, 1.6vw, 28px);
+  font-weight: 950;
+  color: var(--white);
+  background: transparent;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.priorities-box .accordion-button:focus{
+  box-shadow:none !important;
+}
+
+/* Remove bootstrap chevron */
+.priorities-box .accordion-button::after{
+  background-image: none !important;
+  content:"+";
+  display:inline-grid;
+  place-items:center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 3px solid rgba(255,255,255,.92);
+  color: rgba(255,255,255,.92);
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 1;
+  transform: none !important;
+}
+.priorities-box .accordion-button:not(.collapsed)::after{
+  content:"–";
+}
+
+/* Panel body */
+.priorities-box .accordion-body{
+  padding: 0 24px 22px 24px;
+  background: rgba(4,15,22,.16);
+  color: rgba(255,255,255,.94);
+}
+.priorities-box .accordion-body p,
+.priorities-box .accordion-body li,
+.priorities-box .accordion-body small,
+.priorities-box .accordion-body .text-secondary{
+  color: rgba(255,255,255,.92)!important;
+}
+
+/* =========================================================
+   PROMISE TAG
+========================================================= */
+.promise-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.94);
+}
+.promise-tag .dot{
+  width:.55rem;
+  height:.55rem;
+  border-radius:999px;
+  background: var(--pink);
+  box-shadow: 0 0 0 5px rgba(224,172,157,.20);
+}
+
+/* =========================================================
+   QUOTES
+========================================================= */
+.quote{
+  font-size:1.05rem;
+  color: rgba(255,255,255,.90);
+}
+.quote::before,
+.quote::after{
+  color: var(--pink);
+  font-weight: 1000;
+  font-size: 2rem;
+  line-height: 0;
+}
+.quote::before{content:"“"; margin-right:.2rem}
+.quote::after{content:"”"; margin-left:.2rem}
+
+/* =========================================================
+   GLOBAL LEGIBILITY PATCHES
+========================================================= */
+.text-muted{color: rgba(255,255,255,.78)!important;}
+.text-secondary{color: rgba(255,255,255,.82)!important;}
+.lead{color: rgba(255,255,255,.88)!important;}
+.accordion-button:focus{box-shadow:none; outline:none}
+
+/* =========================================================
+   HIGHLIGHT (pink marker effect)
+========================================================= */
+.highlight,
+mark{
+  background: rgba(224,172,157,.92);
+  color: var(--ink);
+  padding: .08em .30em;
+  border-radius: 10px;
+  box-shadow: 0 8px 0 rgba(224,172,157,.22);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer{
+  background: rgba(4,15,22,.82);
+  color: rgba(255,255,255,.86);
+  padding:2.25rem 0;
+  border-top: 1px solid rgba(188,212,222,.14);
+}
+.footer a{color: rgba(255,255,255,.92)}
+.footer a:hover{color: var(--pink)}
+.smallprint{font-size:.92rem; color: rgba(255,255,255,.72)}
+
+
+/* =========================================================
+  EXTRAS
+========================================================= */
+
+.priorities-box + .btn {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.carousel-caption--custom{
+  position: static;              /* sits BELOW the image */
+  padding: .5rem .25rem 0;
+  text-align: left;
+}
+
+.carousel-caption--custom p{
+  font-size: 1rem;
+  color: #ffffff;                /* Bootstrap muted */
+  line-height: 1.3;
+  max-width: 95%;
+}
+
+
+#photosCarousel{
+  margin-top: 100px;
+}
+
+.mt-100 { margin-top: 100px; }
